@@ -1,30 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default class Navbar extends Component {
-  constructor(){
-    super();
-    this.state={
-      value: ""
-    }
+const Navbar = () => {
 
-    this.hanldleChange = this.hanldleChange.bind(this);
-    this.hanldleSubmit = this.hanldleSubmit.bind(this);
-  }
-
-  hanldleChange(event){
-    this.setState({value: event.target.value})
-  }
-
-  hanldleSubmit(event){
-    alert(this.state.value)
-    event.preventDefault();
-  }
-
-  render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
               DailyNews
@@ -81,14 +62,11 @@ export default class Navbar extends Component {
                   </Link>
                 </li>
               </ul>
-              <form class="d-flex" onSubmit={this.hanldleSubmit}>
-                <input onChange={this.hanldleChange} value={this.state.value} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Submit</button> 
-              </form>
             </div>
           </div>
         </nav>
       </div>
     );
   }
-}
+
+export default Navbar
